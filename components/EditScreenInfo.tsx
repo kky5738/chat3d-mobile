@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'expo-router'
 import { StyleSheet, FlatList, Pressable } from 'react-native';
 
 import Colors from '../constants/Colors';
@@ -8,6 +9,8 @@ import { Text, View } from './Themed';
 
 
 export default function EditScreenInfo({ data }: { data: string }) {
+  const router = useRouter()
+
   return (
     <View>
       <View style={styles.getStartedContainer}>
@@ -25,7 +28,7 @@ export default function EditScreenInfo({ data }: { data: string }) {
             darkColor="rgba(255,255,255,0.05)"
             lightColor="rgba(0,0,0,0.05)"
           >
-            <Pressable>
+            <Pressable onPress={() => router.push(`/image-grid/${item}`)}>
               <MonoText>{item}</MonoText>
             </Pressable>
           </View>
@@ -33,7 +36,6 @@ export default function EditScreenInfo({ data }: { data: string }) {
           
         />
         
-
         <Text
           style={styles.getStartedText}
           lightColor="rgba(0,0,0,0.8)"
