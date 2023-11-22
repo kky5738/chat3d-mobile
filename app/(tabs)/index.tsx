@@ -1,31 +1,45 @@
-import React from 'react';
-import { StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import {useState} from 'react';
+import { StyleSheet, ScrollView } from 'react-native';
 
 import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View } from '../../components/Themed';
 import InputPrompt from '../../components/InputPrompt'
+import axios from 'axios'
 
 export default function TabOneScreen() {
-  
+  const [inputText, setInputText] = useState('')
+  const [prompt, setPrompt] = useState('')
+
+  const handlePress = async () => {
+
+    console.log("send pressed", inputText)
+    const options = {
+      method: "POST",
+      url: `http://100.64.159.131:8375/text`,
+      data: {
+        query: inputText,
+        model_id: "T5"
+      }
+    }
+
+    try{
+      const response = await axios.request(options)
+      console.log(response.data.answer)
+      setPrompt(response.data.answer)
+    } catch (error) {
+      console.log(error)
+    } 
+
+  }
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      {/*  */}
-      {/* <View style={styles.promptWarpper}>
-        <TextInput
-          style={styles.inputPrompt}
-          value={searchTerm}
-          onChangeText={(text) => setSearchTerm(text)}
-          placeholder='Test'
-        />
-        <TouchableOpacity style={styles.sendText}>
-          <Text>send</Text>
-        </TouchableOpacity>
-      </View> */}
-      {/*  */}
-      <InputPrompt/>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
+      <ScrollView>
+        <Text style={styles.title}>Tab One</Text>
+        <InputPrompt inputText={inputText} setInputText={setInputText} handlePress={handlePress}/>
+        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+        <EditScreenInfo path={prompt[0]} />
+      </ScrollView>
     </View>
   );
 }

@@ -19,6 +19,7 @@ const useFetch = (endpoint, method, query) => {
             const response = await axios.request(options)
 
             setData(response.data)
+            setIsLoading(false)
         } catch(error) {
             setError(error)
             console.log(error)
@@ -26,4 +27,17 @@ const useFetch = (endpoint, method, query) => {
             setIsLoading(false)
         }
     }
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+
+    const refetch = () => {
+        setIsLoading(true)
+        fetchData()
+    }
+    return {data, isLoading, error, refetch}
+
 }
+
+export default useFetch

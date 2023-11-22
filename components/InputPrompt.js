@@ -1,20 +1,38 @@
-import { useState } from "react"
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native"
+import { useEffect, useState } from "react"
+import { View, Text, TextInput, Pressable, StyleSheet } from "react-native"
 
-const InputPrompt = () => {
-    const [searchTerm, setSearchTerm] = useState('')
+
+const InputPrompt = ({inputText, setInputText, handlePress}) => {
+    
+
+    // const getPrompt = () => {
+    //     console.log("send pressed")
+    //     const {data, isLoading, error} = useFetch("text", "POST", 
+    //         {
+    //             query: `${inputText}`,
+    //             model_id: "T5"
+    //         }
+    //     )
+    //     console.log(data)
+    // }
+    
+
     return (
-        
-        <View style={styles.promptWarpper}>
-            <TextInput
-                style={styles.inputPrompt}
-                value={searchTerm}
-                onChangeText={(text) => setSearchTerm(text)}
-                placeholder='Test'
-            />
-            <TouchableOpacity style={styles.sendText}>
-                <Text>send</Text>
-            </TouchableOpacity>
+        <View>
+            <View style={styles.promptWarpper}>
+                <TextInput
+                    style={styles.inputPrompt}
+                    value={inputText}
+                    onChangeText={(text) => setInputText(text)}
+                    placeholder='Test'
+                />
+                <Pressable 
+                    style={styles.sendText}
+                    onPress={handlePress}
+                >
+                    <Text>send</Text>
+                </Pressable>
+            </View>
         </View>
     )
 }
@@ -28,7 +46,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'yellow',
       },
       sendText: {
-        flex: 1
+        padding: 10
       }
 })
 
