@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import { StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 
 import EditScreenInfo from '../../components/EditScreenInfo';
