@@ -26,3 +26,9 @@
 ## Docker
 - [[Docker 설치 및 환경설정]]
 - sudo docker run -d --name postgres-server -p 5432:5432 -e POSTGRES_USER=leo -e POSTGRES_PASSWORD=leopass -e POSTGRES_DB=chat3d_DB postgres:14.0
+
+## GIT
+### Branch 관리
+- [git-flow 종류](https://github.com/gyoogle/tech-interview-for-developer/blob/master/ETC/Git%20vs%20GitHub%20vs%20GitLab%20Flow.md)
+- [branch & naming](https://velog.io/@kim-jaemin420/Git-branch-naming)
+- 
