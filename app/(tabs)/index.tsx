@@ -18,7 +18,7 @@ export default function TabOneScreen() {
       url: `http://100.64.159.131:8375/text`,
       data: {
         query: inputText,
-        model_id: "T5"
+        modelName: "T5"
       }
     }
 
