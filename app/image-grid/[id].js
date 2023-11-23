@@ -1,5 +1,5 @@
 import {react, useState, useCallback} from "react";
-import { View, Text, FlatList, Pressable } from "react-native";
+import { View, Text, FlatList, Pressable, Image } from "react-native";
 import { useGlobalSearchParams} from 'expo-router'
 import useFetch from '../../Hook/useFetch'
 import { MonoText } from '../../components/StyledText';
@@ -28,7 +28,12 @@ const ImageGrid = () => {
                         <View>
                             <Pressable onPress={() => router.push(`/image-grid/${item}`)}>
                                 {/* iamge component 이용해서 Text 대신 이미지 띄우기 */}
-                                <MonoText>{item}</MonoText>
+                                {/* <MonoText>{item}</MonoText> */}
+                                <Image
+                                    source={item}
+                                    resizeMode="contain"
+                                />
+
                             </Pressable>
                         </View>
                     )}
