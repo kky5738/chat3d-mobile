@@ -1,7 +1,8 @@
 import {react, useState, useCallback} from "react";
-import { View, Text } from "react-native";
+import { View, Text, FlatList, Pressable } from "react-native";
 import { useGlobalSearchParams} from 'expo-router'
 import useFetch from '../../Hook/useFetch'
+import { MonoText } from '../../components/StyledText';
 
 // fix branch 만들고 Hook/useFetch 에서 params 대신 data로 수정하여 request body로 만들기
 const ImageGrid = () => {
@@ -21,7 +22,18 @@ const ImageGrid = () => {
         <View>
             <Text>ImageGrid Component test</Text>
             <View>
-                <Text>{data}</Text>
+                <FlatList
+                    data={data.image}
+                    renderItem={({item}) => (
+                        <View>
+                            <Pressable onPress={() => router.push(`/image-grid/${item}`)}>
+                                {/* iamge component 이용해서 Text 대신 이미지 띄우기 */}
+                                <MonoText>{item}</MonoText>
+                            </Pressable>
+                        </View>
+                    )}
+                />
+                {/* <Text>{data.image}</Text> */}
             </View>
         </View>
     )
