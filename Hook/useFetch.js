@@ -9,7 +9,7 @@ const useFetch = (endpoint, method, query) => {
     const options = {
         method: `${method}`,
         url: `http://100.64.159.131:8375/${endpoint}`,
-        params: {...query}
+        data: {...query}
     }
 
     const fetchData = async () => {
