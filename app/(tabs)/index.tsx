@@ -46,7 +46,10 @@ export default function TabOneScreen() {
   return (
     <View style={styles.container}>
       <ScrollView>
-        <Text style={styles.title}>Tab One</Text>
+        <View style={styles.container}>
+          <Text style={styles.title}>Chat3D</Text>
+        </View>
+        
         <InputPrompt inputText={inputText} setInputText={setInputText} handlePress={handlePress}/>
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
         <EditScreenInfo data={prompt} />
@@ -64,11 +67,14 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
+    justifyContent: 'center',
+    alignContent: 'center',
+    
   },
   separator: {
     marginVertical: 30,
     height: 1,
-    width: '80%',
+    width: '100%',
   },
   inputPrompt: {
     width: "60%",
