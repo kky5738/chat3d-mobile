@@ -7,12 +7,13 @@ import InputPrompt from '../../components/InputPrompt'
 import axios from 'axios'
 
 export default function TabOneScreen() {
+  
   const [inputText, setInputText] = useState('')
   const [prompt, setPrompt] = useState(Object)
 
   // When server is working on
   const handlePress = async () => {
-
+    
     console.log("send pressed", inputText)
     const options = {
       method: "POST",
@@ -24,6 +25,7 @@ export default function TabOneScreen() {
     }
 
     try{
+      
       const response = await axios.request(options)
       console.log(response.data.answer)
       setPrompt(response.data.answer)
