@@ -1,13 +1,14 @@
 import React, { useState, useCallback } from "react";
 import { View, Text, FlatList, Pressable, Image, ActivityIndicator, StyleSheet } from "react-native";
-import { useGlobalSearchParams } from 'expo-router';
+import { useGlobalSearchParams, useRouter } from 'expo-router';
 import useFetch from '../../Hook/useFetch';
 import { MonoText } from '../../components/StyledText';
 
 const ImageGrid = () => {
     const params = useGlobalSearchParams();
+    const router = useRouter()
     const { data, isLoading, error, refetch } = useFetch("image-create", "POST", {
-        query: params.id,
+        query: params.prompt,
         modelName: "stable diffusion"
     });
     const [refreshing, setRefreshing] = useState(false);
@@ -26,7 +27,7 @@ const ImageGrid = () => {
                     data={data?.images}
                     renderItem={({ item }) => (
                         <View style={styles.imageWrapper}>
-                            <Pressable onPress={() => router.push(`/image-grid/${item}`)}>
+                            <Pressable onPress={() => router.push(`/3d-recon/${item}`)}>
                                 <Image
                                     source={{ uri: `data:image/png;base64,${item}` }}
                                     style={styles.image}
@@ -64,7 +65,6 @@ const ImageGrid = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
         alignItems: 'center',
     },
     imageContainer: {
@@ -72,7 +72,6 @@ const styles = StyleSheet.create({
     },
     imageWrapper: {
         flex: 1,
-        justifyContent: 'flex-start',
         alignItems: 'center',
         padding: 10,
     },

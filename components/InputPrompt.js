@@ -6,7 +6,7 @@ import { View, Text, TextInput, Pressable, StyleSheet } from "react-native"
 const InputPrompt = ({inputText, setInputText, handlePress}) => {
 
     return (
-        <View>
+        <View style={{alignItems: 'center'}}>
             <View style={styles.promptWarpper}>
                 <TextInput
                     style={styles.textInput}
