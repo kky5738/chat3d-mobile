@@ -6,14 +6,14 @@ import { View, Text, TextInput, Pressable, StyleSheet } from "react-native"
 const InputPrompt = ({inputText, setInputText, handlePress}) => {
 
     return (
-        <View>
+        <View style={{alignItems: 'center'}}>
             <View style={styles.promptWarpper}>
                 <TextInput
                     style={styles.textInput}
                     value={inputText}
                     onChangeText={(text) => setInputText(text)}
                     placeholder='Type Here!'
-                    
+                    onSubmitEditing={handlePress}                    
                 />
                 <Pressable 
                     style={styles.sendBtn}
@@ -32,10 +32,10 @@ const styles = StyleSheet.create({
         
         flexDirection: 'row',
         backgroundColor: '#FFF',
-        justifyContent: 'center',
+        justifyContent: 'middle',
       },
       sendBtn: {
-        borderRadius: '5px',
+        borderRadius: 5,
         border: '1px solid #C2C2C2',
         paddingVertical: '9.5px',
         paddingHorizontal: '16px',
@@ -47,16 +47,16 @@ const styles = StyleSheet.create({
       },
       sendText: {
         color: '#FFF',
-        verticalAlign: 'center',
+        verticalAlign: 'middle',
       },
       textInput: {
         flexShrink: 0,
         borderColor: '#4c4c4c',
-        borderBottomWidth: '1px',
+        borderBottomWidth: 1,
         
         // borderRadius: '5px',
         backgroundColor: '#E6E6E6',
-        paddingLeft: '10px',
+        paddingLeft: 10,
         
       }
 })
