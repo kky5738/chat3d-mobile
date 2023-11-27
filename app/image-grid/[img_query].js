@@ -8,7 +8,7 @@ const ImageGrid = () => {
     const params = useGlobalSearchParams();
     const router = useRouter()
     const { data, isLoading, error, refetch } = useFetch("image-create", "POST", {
-        query: params.prompt,
+        query: params.img_query,
         modelName: "stable diffusion"
     });
     const [refreshing, setRefreshing] = useState(false);
