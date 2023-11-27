@@ -2,7 +2,6 @@ import React, { useState, useCallback } from "react";
 import { View, Text, FlatList, Pressable, Image, ActivityIndicator, StyleSheet } from "react-native";
 import { useGlobalSearchParams, useRouter } from 'expo-router';
 import useFetch from '../../Hook/useFetch';
-import { MonoText } from '../../components/StyledText';
 
 const ImageGrid = () => {
     const params = useGlobalSearchParams();
