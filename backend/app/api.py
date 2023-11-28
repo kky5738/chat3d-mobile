@@ -95,7 +95,7 @@ def recommend_prompt(item: Item):
         "recommend": recommend,
         "answer": answer}
 
-def image_to_base64(image):
+def _image_to_base64(image):
     img_byte_array = BytesIO()
     image.save(img_byte_array, format="PNG")
     img_data = img_byte_array.getvalue()
@@ -113,7 +113,7 @@ def create_image(item: Item):
         
         org_img = Diffuse.run2(prompt)
         removed_img = remove(org_img, alpha_matting=False)
-        image_base64 = image_to_base64(removed_img)
+        image_base64 = _image_to_base64(removed_img)
         
         images.append(image_base64)
     
