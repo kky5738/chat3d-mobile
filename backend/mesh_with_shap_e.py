@@ -1,5 +1,6 @@
 import torch
 import time
+import os
 
 from shap_e.diffusion.sample import sample_latents
 from shap_e.diffusion.gaussian_diffusion import diffusion_from_config
@@ -48,10 +49,14 @@ def create_mesh(img_path: str, ID: str, render_mode='nerf'):
 
     # Example of saving the latents as meshes.
     from shap_e.util.notebooks import decode_latent_mesh
-
+    
     t = decode_latent_mesh(xm, latents[0]).tri_mesh()
-        # with open(f'example_mesh_{i}.ply', 'wb') as f: # 원본
-    with open(f'./static/{ID}/generated_3d.obj', 'w') as f:
+        
+    save_dir = f'./static/{ID}'
+    if not os.path.exists(save_dir):
+        os.mkdir(save_dir)
+        
+    with open(f'{save_dir}/generated_3d.obj', 'w') as f:
         t.write_obj(f)
     
     end_time = time.time()
