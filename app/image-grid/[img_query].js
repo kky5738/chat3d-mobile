@@ -32,10 +32,10 @@ const ImageGrid = () => {
                                     pathname: `/3d-recon/image${index}`,
                                     params: {
                                         image: `${item}`,
+                                        id: `${index}`
                                     }
                                 }
                                 )}>
-                            {/* <Pressable onPress={() => router.push(`/3d-recon/`)}> */}
                                 <Image
                                     source={{ uri: `data:image/png;base64,${item}` }}
                                     style={styles.image}

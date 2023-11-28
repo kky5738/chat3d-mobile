@@ -10,9 +10,10 @@ const Render3D = () => {
     console.log(params.image)
     const {data, isLoading, error, refetch} = useFetch("create-3D", "POST", {
         query: params.image,
+        ID: params.image_to_3d,
         modelName: "NeRF"
     })
-    console.log("3d data:", data)
+
     return (
         <View>
             <Text>Test 3D</Text>
