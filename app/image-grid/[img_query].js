@@ -17,16 +17,25 @@ const ImageGrid = () => {
         refetch();
         setRefreshing(false);
     }, []);
-
+    
+    const dummy = "test3d"
     return (
         <View style={styles.container}>
             <Text>ImageGrid Component test</Text>
             <View style={styles.imageContainer}>
                 <FlatList
                     data={data?.images}
-                    renderItem={({ item }) => (
+                    renderItem={({ item, index }) => (
                         <View style={styles.imageWrapper}>
-                            <Pressable onPress={() => router.push(`/3d-recon/${item}`)}>
+                            <Pressable onPress={() => router.push(
+                                {
+                                    pathname: `/3d-recon/image${index}`,
+                                    params: {
+                                        image: `${item}`,
+                                    }
+                                }
+                                )}>
+                            {/* <Pressable onPress={() => router.push(`/3d-recon/`)}> */}
                                 <Image
                                     source={{ uri: `data:image/png;base64,${item}` }}
                                     style={styles.image}
