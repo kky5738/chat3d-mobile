@@ -17,7 +17,12 @@ const Render3D = () => {
     return (
         <View>
             <Text>Test 3D</Text>
-            
+            {isLoading ? 
+                (
+                    <ActivityIndicator size="large" color="#0000ff" /> 
+                ) : (
+                    <Text>No images found.</Text>
+                )}
         </View>
     )
 }
