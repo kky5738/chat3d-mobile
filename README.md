@@ -32,3 +32,6 @@
 - [git-flow 종류](https://github.com/gyoogle/tech-interview-for-developer/blob/master/ETC/Git%20vs%20GitHub%20vs%20GitLab%20Flow.md)
 - [branch & naming](https://velog.io/@kim-jaemin420/Git-branch-naming)
 - 
+
+## Obisian
+- [옵시디언 깃 연동](https://g4daclom.tistory.com/134)

@@ -49,9 +49,6 @@ middleware = [
     )
 ]
 
-# pipe = pipeline("image-to-text", model="C:\\Users\\kky57\\Documents\\1.smu\\2023\\2nd_seme\\mobileSW\\react-native-serve-ml\\assets\\vit-gpt2-image-captioning")
-# pipe = pipeline("image-to-text", model="..\\assets\\vit-gpt2-image-captioning")
-
 app = FastAPI(middleware=middleware)
 
 class Item(BaseModel):
@@ -62,7 +59,8 @@ class Item3D(BaseModel):
     query: str
     ID: str
     modelName: str
-    
+ 
+# for testing
 @app.get("/items/")
 async def read_item():
     
@@ -143,16 +141,5 @@ def create_3d(item: Item3D):
 
     # make 3D
     shapE.create_mesh(image_stream, str(ID))
-    
-    """
-    3D 생성하고 반환을 어떻게 해줄지 고민해보기
-      1. shapE 모델로 바로 3D 생성하고 return 할지
-        1-1. shapE 모델에서 image to 3d만 이용할지
-        1-2. text to 3d도 진행해 결과를 여러개 만들지
-      2. realfusion으로 1시간? 정도 시간 소요해서 3d 생성하고 메일로 결과를 보낼지
-      3. 위 모두를 고려할지
-        3-1. single user만 고려한다면 3개 다 진행해도 상관x
-        3-2. 하지만 multi user를 고려한다면 trafic, GPU memory 등을 고려해 결정해야 함
-    """
 
     return {"status": "200 OK"}
