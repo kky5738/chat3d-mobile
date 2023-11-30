@@ -2,6 +2,7 @@
 
 ## Environments
 We are tested on Ubuntu 23.04 Python 3.9 PyTorch 2.0.1+cu117
+![nvidia-smi](https://github.com/kky5738/chat3d-mobile/assets/74523540/6ea58504-4f4a-47f6-b187-95da49df51f5)
 
 ### Optional
 - using pytorch3d rendering
