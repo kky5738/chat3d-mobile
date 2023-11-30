@@ -1,6 +1,21 @@
 
 
+## Environments
+We are tested on Ubuntu 23.04 Python 3.9 PyTorch 2.0.1+cu117
 
+### Optional
+- using pytorch3d rendering
+```
+# if you need other install ways, check out this repo: https://github.com/facebookresearch/pytorch3d/blob/main/INSTALL.md
+pip install "git+https://github.com/facebookresearch/pytorch3d.git"
+```
+
+
+## Trouble Shoot
+- If you encounter below error, go to xformers official [repo](https://github.com/facebookresearch/xformers) and install it
+```
+ModuleNotFoundError: Refer to https://github.com/facebookresearch/xformers for more information on how to install xformers
+```
 
 
 아래 내용 reference 파일 만들어서 옮기기
