@@ -41,7 +41,7 @@ ModuleNotFoundError: Refer to https://github.com/facebookresearch/xformers for m
 
 ## Docker
 - [[Docker 설치 및 환경설정]]
-- sudo docker run -d --name postgres-server -p 5432:5432 -e POSTGRES_USER=leo -e POSTGRES_PASSWORD=leopass -e POSTGRES_DB=chat3d_DB postgres:14.0
+
 
 ## GIT
 ### Branch 관리
