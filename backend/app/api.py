@@ -1,20 +1,26 @@
 import torch
 import fastapi
 import base64
+import os
+import sys
 from starlette.middleware import Middleware
 from starlette.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
-
 from pydantic import BaseModel
-from llm.Getprompt import TextProcessingGPT, TextProcessingT5
 from datetime import datetime
+
+# text
+from llm.Getprompt import TextProcessingGPT, TextProcessingT5
+
+# image
+from diffusers import DiffusionPipeline
+from diffusers.utils import pt_to_pil
 from diffusion import Diffuse
-import os
-import sys
 from io import BytesIO
 from PIL import Image
 
+# 3D
 import mesh_with_shap_e as shapE
 
 try:

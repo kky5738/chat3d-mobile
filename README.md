@@ -1,6 +1,22 @@
 
 
+## Environments
+We are tested on Ubuntu 23.04 Python 3.9 PyTorch 2.0.1+cu117
+![nvidia-smi](https://github.com/kky5738/chat3d-mobile/assets/74523540/6ea58504-4f4a-47f6-b187-95da49df51f5)
 
+### Optional
+- using pytorch3d rendering
+```
+# if you need other install ways, check out this repo: https://github.com/facebookresearch/pytorch3d/blob/main/INSTALL.md
+pip install "git+https://github.com/facebookresearch/pytorch3d.git"
+```
+
+
+## Trouble Shoot
+- If you encounter below error, go to xformers official [repo](https://github.com/facebookresearch/xformers) and install it
+```
+ModuleNotFoundError: Refer to https://github.com/facebookresearch/xformers for more information on how to install xformers
+```
 
 
 아래 내용 reference 파일 만들어서 옮기기
@@ -25,7 +41,7 @@
 
 ## Docker
 - [[Docker 설치 및 환경설정]]
-- sudo docker run -d --name postgres-server -p 5432:5432 -e POSTGRES_USER=leo -e POSTGRES_PASSWORD=leopass -e POSTGRES_DB=chat3d_DB postgres:14.0
+
 
 ## GIT
 ### Branch 관리
