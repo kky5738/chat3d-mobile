@@ -5,7 +5,11 @@ import { Pressable, useColorScheme } from 'react-native';
 import Colors from '../../constants/Colors';
 
 /**
- * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
+ * Custom TabBarIcon component.
+ * @param {object} props - The properties of the component.
+ * @param {string} props.name - The name of the FontAwesome icon.
+ * @param {string} props.color - The color of the icon.
+ * @returns {JSX.Element} - The TabBarIcon component.
  */
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>['name'];
@@ -14,6 +18,10 @@ function TabBarIcon(props: {
   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
 }
 
+/**
+ * Main TabLayout component for rendering the bottom tab navigation.
+ * @returns {JSX.Element} - The TabLayout component.
+ */
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
@@ -22,12 +30,14 @@ export default function TabLayout() {
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
       }}>
+      {/* First Tab Screen */}
       <Tabs.Screen
         name="index"
         options={{
           title: 'Tab One',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerRight: () => (
+            // Link to the "/modal" route with an info-circle FontAwesome icon
             <Link href="/modal" asChild>
               <Pressable>
                 {({ pressed }) => (
@@ -43,6 +53,7 @@ export default function TabLayout() {
           ),
         }}
       />
+      {/* Second Tab Screen */}
       <Tabs.Screen
         name="two"
         options={{
