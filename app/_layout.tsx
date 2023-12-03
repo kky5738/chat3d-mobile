@@ -19,6 +19,7 @@ export const unstable_settings = {
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
+  // Load fonts and FontAwesome
   const [loaded, error] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
     ...FontAwesome.font,
@@ -29,6 +30,7 @@ export default function RootLayout() {
     if (error) throw error;
   }, [error]);
 
+  // Hide the splash screen when fonts are loaded
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();
@@ -43,11 +45,14 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
+  // Get the color scheme (dark/light) from the device
   const colorScheme = useColorScheme();
 
   return (
+    // Apply theme based on the color scheme
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
+        {/* Define your screens */}
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
       </Stack>

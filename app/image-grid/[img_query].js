@@ -4,21 +4,26 @@ import { useGlobalSearchParams, useRouter } from 'expo-router';
 import useFetch from '../../Hook/useFetch';
 
 const ImageGrid = () => {
+    // Get search params from global context
     const params = useGlobalSearchParams();
-    const router = useRouter()
+    // Get router for navigation
+    const router = useRouter();
+
+    // Fetch data from the server using useFetch hook
     const { data, isLoading, error, refetch } = useFetch("image-create", "POST", {
         query: params.img_query,
         modelName: "stable diffusion"
     });
     const [refreshing, setRefreshing] = useState(false);
 
+    // Callback function to handle refresh
     const onRefresh = useCallback(() => {
         setRefreshing(true);
+        // Call the refetch function to get fresh data from the server
         refetch();
         setRefreshing(false);
     }, []);
     
-    const dummy = "test3d"
     return (
         <View style={styles.container}>
             <Text>ImageGrid Component test</Text>
@@ -27,15 +32,15 @@ const ImageGrid = () => {
                     data={data?.images}
                     renderItem={({ item, index }) => (
                         <View style={styles.imageWrapper}>
-                            <Pressable onPress={() => router.push(
-                                {
+                            <Pressable onPress={() => 
+                                router.push({
                                     pathname: `/3d-recon/image${index}`,
                                     params: {
                                         image: `${item}`,
                                         id: `${index}`
                                     }
-                                }
-                                )}>
+                                })
+                            }>
                                 <Image
                                     source={{ uri: `data:image/png;base64,${item}` }}
                                     style={styles.image}
