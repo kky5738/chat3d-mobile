@@ -7,8 +7,13 @@ import { Text, View } from '../components/Themed';
 export default function ModalScreen() {
   return (
     <View style={styles.container}>
+      {/* Title of the modal screen */}
       <Text style={styles.title}>Modal</Text>
+      
+      {/* Separator line with different colors based on the theme */}
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      
+      {/* Information about the screen, using the EditScreenInfo component */}
       <EditScreenInfo data="app/modal.tsx" />
 
       {/* Use a light status bar on iOS to account for the black space above the modal */}

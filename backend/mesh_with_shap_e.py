@@ -9,6 +9,17 @@ from shap_e.util.notebooks import create_pan_cameras, decode_latent_images
 from shap_e.util.image_util import load_image
 
 def create_mesh(img_path: str, ID: str, render_mode='nerf'):
+    """
+    Create a 3D mesh from an image using SHAP-E.
+
+    Parameters:
+    - img_path (str): The path to the input image.
+    - ID (str): Unique identifier for the output directory.
+    - render_mode (str, optional): Rendering mode, choose between 'nerf' (default) or 'stf' for mesh rendering.
+
+    Returns:
+    - None: Saves the generated 3D mesh in the specified directory.
+    """
     torch.cuda.empty_cache()
     device = torch.device('cuda:1' if torch.cuda.is_available() else 'cpu')
 
@@ -39,6 +50,7 @@ def create_mesh(img_path: str, ID: str, render_mode='nerf'):
         sigma_max=160,
         s_churn=0,
     )
+    
     # render_mode = 'nerf' # you can change this to 'stf' for mesh rendering
     render_mode = render_mode # you can change this to 'stf' for mesh rendering
     size = 64 # this is the size of the renders; higher values take longer to render.
@@ -60,8 +72,8 @@ def create_mesh(img_path: str, ID: str, render_mode='nerf'):
         t.write_obj(f)
     
     end_time = time.time()
-    print(f"[INFO] mesh exporting takes {(end_time - start_time)/ 60:.4f} minutes.")
+    print(f"[INFO] Mesh exporting takes {(end_time - start_time)/ 60:.4f} minutes.")
     
 if __name__ == '__main__':
-    img_path = "gyeongyeong_Kim/ImageCaptioning_with_RN/backend/shap-e/shap_e/examples/example_data/cactus.png"
-    create_mesh(img_path)
+    img_path = "/shap-e/shap_e/examples/example_data/cactus.png"
+    create_mesh(img_path, "unique_ID_for_output_directory")
