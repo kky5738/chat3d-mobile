@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { View, Text, ActivityIndicator } from "react-native";
 import { useGlobalSearchParams, useRouter } from "expo-router";
-import useFetch from "../../Hook/useFetch";
+import useFetch from "../../hooks/useFetch";
 
 const Generate3D = () => {
     const params = useGlobalSearchParams();
