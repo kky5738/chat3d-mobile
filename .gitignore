@@ -48,3 +48,6 @@ backend/cert/
 
 # python venv
 backend/.venv/
+
+# pycache
+__pycache__
