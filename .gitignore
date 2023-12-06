@@ -45,3 +45,6 @@ backend/cert/
 
 # prettier
 .prettierrc
+
+# python venv
+backend/.venv/
