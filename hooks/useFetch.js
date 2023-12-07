@@ -20,6 +20,12 @@ const useFetch = (endpoint, method, query) => {
         data: { ...query }
     };
 
+    // const options = {
+    //     method: `${method}`,
+    //     url: `locallhost:8375/${endpoint}`,
+    //     data: { ...query }
+    // };
+
     const fetchData = async () => {
         setIsLoading(true);
 
