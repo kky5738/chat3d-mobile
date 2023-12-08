@@ -13,12 +13,7 @@ export default function EditScreenInfo({ data }: { data: string }) {
   return (
     <View>
       <View style={styles.getStartedContainer}>
-        <Text
-          style={styles.getStartedText}
-          lightColor="rgba(0,0,0,0.8)"
-          darkColor="rgba(255,255,255,0.8)">
-          Recommended prompt from LLM here:
-        </Text>
+
         <FlatList
           data={data}
           renderItem={({item}) => (
@@ -37,10 +32,10 @@ export default function EditScreenInfo({ data }: { data: string }) {
         
 
         <Text
-          style={styles.getStartedText}
+          style={styles.footerText}
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)">
-          Change any of the text, save the file, and your app will automatically update.
+          Select any text that you want to make 3D
         </Text>
       </View>
     </View>
@@ -59,7 +54,7 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     paddingHorizontal: 4,
   },
-  getStartedText: {
+  footerText: {
     fontSize: 17,
     lineHeight: 24,
     textAlign: 'center',
