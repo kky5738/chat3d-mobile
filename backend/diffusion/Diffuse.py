@@ -22,7 +22,7 @@ def model_run():
 def model_run2():
     pipe = StableDiffusionPipeline.from_pretrained("runwayml/stable-diffusion-v1-5", torch_dtype=torch.float16) 
     pipe.scheduler = UniPCMultistepScheduler.from_config(pipe.scheduler.config)
-    pipe.enable_model_cpu_offload()
+    pipe.enable_model_cpu_offload(gpu_id = 0)
     pipe.enable_xformers_memory_efficient_attention()
     pipe.enable_attention_slicing()
     return pipe
@@ -51,7 +51,7 @@ def run(prompt):
     torch.cuda.empty_cache()
     pipe = model_run()
     prompt = prompt + ", best quality, extremely detailed, Uncropped, Sole entity, standalone element"
-    generator = torch.Generator(device="cuda").manual_seed(ran_seed)
+    generator = torch.Generator(device="cuda:1").manual_seed(ran_seed) # cuda:0 -> 0번 gpu 사용 , cuda:1 -> 1번 gpu 사용
     image = pipe(
     prompt,
     negative_prompt="monochrome, lowres, bad anatomy, worst quality, low quality",
@@ -65,7 +65,7 @@ def run2(prompt):
     torch.cuda.empty_cache()
     pipe = model_run2()
     prompt = prompt + ", best quality, extremely detailed, Uncropped, Sole entity, standalone element"
-    generator = torch.Generator(device="cuda").manual_seed(ran_seed)
+    generator = torch.Generator(device="cuda:1").manual_seed(ran_seed)
     image = pipe(
     prompt,
     negative_prompt="monochrome, lowres, bad anatomy, worst quality, low quality",
