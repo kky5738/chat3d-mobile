@@ -51,6 +51,20 @@ https://github.com/threestudio-project/threestudio
 - [branch & naming](https://velog.io/@kim-jaemin420/Git-branch-naming)
 - [about PR(Pull Request)](https://mine-it-record.tistory.com/692)
 - [git commit message/PR 잘 쓰는 법](https://velog.io/@ye-ji/Git-PR-%EC%9E%98-%EC%93%B0%EB%8A%94-%EB%B0%A9%EB%B2%95)
+	- PR 템플릿
+```
+### PR 타입(하나 이상의 PR 타입을 선택해주세요)
+- [ ] 기능 추가
+- [ ] 기능 삭제
+- [ ] 버그 수정
+- [ ] 의존성, 환경 변수, 빌드 관련 코드 업데이트
+
+### 반영 브랜치
+ex) feat/login -> dev
+
+### 변경 사항
+ex) 로그인 시, 구글 소셜 로그인 기능을 추가했습니다.
+```
 
 ## Obsidian
 - [옵시디언 깃 연동](https://g4daclom.tistory.com/134)
@@ -60,3 +74,7 @@ https://github.com/threestudio-project/threestudio
 ### Module, Package 이해
 https://livetodaykono.tistory.com/20
 https://livetodaykono.tistory.com/22
+
+### VSCode Extensions
+- prettier https://adjh54.tistory.com/20#google_vignette
+- 
