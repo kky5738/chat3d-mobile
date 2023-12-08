@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from "react";
-import { View, Text, FlatList, Pressable, Image, ActivityIndicator, StyleSheet } from "react-native";
+import { FlatList, Pressable, Image, ActivityIndicator, StyleSheet } from "react-native";
+import {View, Text} from "../../components/Themed"
 import { useGlobalSearchParams, useRouter } from 'expo-router';
 import useFetch from '../../hooks/useFetch';
 

@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, TextInput, Pressable, StyleSheet } from 'react-native';
+import { TextInput, Pressable, StyleSheet } from 'react-native';
+import { Text, View } from '../components/Themed';
 
 /**
  * InputPrompt component for handling user input and sending requests.
@@ -24,7 +25,9 @@ const InputPrompt = ({ inputText, setInputText, handlePress }) => {
                 <Pressable style={styles.sendBtn} onPress={handlePress}>
                     <Text style={styles.sendText}>send</Text>
                 </Pressable>
-            </View>
+            </View> 
+
+            
         </View>
     );
 };
