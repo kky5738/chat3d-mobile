@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, ScrollView, ActivityIndicator } from 'react-native';
-import EditScreenInfo from '../../components/EditScreenInfo';
+import PromptViewer from '../../components/PromptViewer';
 import { Text, View } from '../../components/Themed';
 import InputPrompt from '../../components/InputPrompt';
 import axios from 'axios';
@@ -68,7 +68,7 @@ export default function TabOneScreen() {
                         Recommended prompt from LLM here:
                     </Text>
                 )}
-                <EditScreenInfo data={prompt} />
+                <PromptViewer data={prompt} />
             </ScrollView>
         </View>
     );
