@@ -2,18 +2,17 @@ import React from 'react';
 import {useRouter} from 'expo-router'
 import { StyleSheet, FlatList, Pressable } from 'react-native';
 
-import Colors from '../constants/Colors';
 import { MonoText } from './StyledText';
 import { Text, View } from './Themed';
 
 
-export default function EditScreenInfo({ data }: { data: string }) {
+export default function PromptViewer({ data }: { data: string }) {
   const router = useRouter()
 
   return (
     <View>
       <View style={styles.getStartedContainer}>
-
+        {/* LLM에서 응답 받은 prompt를 FlatList를 이용해 화면에 출력 */}
         <FlatList
           data={data}
           renderItem={({item}) => (
@@ -22,15 +21,13 @@ export default function EditScreenInfo({ data }: { data: string }) {
             darkColor="rgba(255,255,255,0.05)"
             lightColor="rgba(0,0,0,0.05)"
           >
+            {/* Text를 누를 경우 해당 text를 이용해 이미지 생성 */}
             <Pressable onPress={() => router.push(`/image-grid/${item}`)}>
               <MonoText>{item}</MonoText>
             </Pressable>
           </View>
           )}
-          
         />
-        
-
         <Text
           style={styles.footerText}
           lightColor="rgba(0,0,0,0.8)"
