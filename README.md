@@ -1,27 +1,57 @@
-# React Native App with Expo
+# Chat3D: React Native App with Expo
 ## Project Overview
-Welcome to this repository showcasing a React Native application developed using Expo and FastAPI. This example app focuses on demonstrating effective deployment strategies for web and mobile machine learning (ML) applications. The core functionality involves serving ML models, and while the current setup deploys diffusion models, it's easily configurable to support various ML workloads.
+Welcome to this repository showcasing a  Chat3D React Native application developed using Expo and FastAPI. This example app focuses on demonstrating effective deployment strategies for web and mobile machine learning (ML) applications. The core functionality involves serving ML models, and while the current setup deploys diffusion models, it's easily configurable to support various ML workloads.
 
 이 저장소에는 Expo 및 FastAPI를 사용하여 구축된 React Native 애플리케이션이 포함되어 있습니다. 이 예시 앱은 웹 및 모바일 ML 애플리케이션의 배포 전략을 시연하기 위한 것입니다. 현재 설정은 확산 모델을 배포하지만 다양한 ML 워크로드를 지원하도록 쉽게 구성할 수 있습니다.
-## Environments
-### Optional
+
+
+# Prerequisite for Install
+- you may need to node.js, python, pytorch, ubuntu, cuda
+
+# Install
+
+```
+git clone https://github.com/kky5738/chat3d-mobile.git
+cd chat3d-mobile/
+```
+## Frontend
+- using npm
+```
+npm install
+```
+## Backend
+```
+cd backend/
+```
+### (Recommended) create a python virtual envirnment(venv)
+```
+python -m venv venv_chat3d
+source venv_chat3d/bin/activate
+```
+### 1. Install with pip
+```
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+### 2. using shap-E for 3D generation
+```
+git clone https://github.com/openai/shap-e.git
+cd shap-e/
+pip install -e .
+cd ..
+```
+### 3. Optional (but Recommended)
 - using pytorch3d rendering
 ```
 # if you need other install ways, check out this repo: https://github.com/facebookresearch/pytorch3d/blob/main/INSTALL.md
 pip install "git+https://github.com/facebookresearch/pytorch3d.git"
 ```
 
-
-## Trouble Shoot
-- If you encounter below error
-```
-ModuleNotFoundError: Refer to https://github.com/facebookresearch/xformers for more information on how to install xformers
-```
-Then:
-	Install xformers
+# Environments
+- tested on Ubuntu 23.04 Python 3.9 PyTorch 2.0.1+cu117
+![nvidia-smi](https://github.com/kky5738/chat3d-mobile/assets/74523540/6ea58504-4f4a-47f6-b187-95da49df51f5)
 
 
-아래 내용 reference 파일 만들어서 옮기기
 ## 참고 예정
 ### Dockerize
 - [Dockerize](https://yongwookha.github.io/MachineLearning/2021-11-11-dockerize-my-deep-learning-model)
@@ -40,8 +70,6 @@ https://github.com/threestudio-project/threestudio
 2. [FastAPI에 HTTPS 적용](https://junah201.medium.com/fastapi%EC%97%90-nginx-%EC%97%86%EC%9D%B4-https-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0-2fbf6dc2e0f2)
 3. [wget certificate 오류 해결](https://heehehe-ds.tistory.com/entry/Linux-wget-certificate-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0)
 - [FastAPI+Traefik+Webserver](https://developer-itspjc.tistory.com/2)
-## Docker
-- [[Docker 설치 및 환경설정]]
 ### axios github issue
 [axios, RN, ios network issue](https://github.com/axios/axios/issues/3192)
 
@@ -76,5 +104,5 @@ https://livetodaykono.tistory.com/20
 https://livetodaykono.tistory.com/22
 
 ### VSCode Extensions
-- prettier https://adjh54.tistory.com/20#google_vignette
+- [prettier](https://adjh54.tistory.com/20#google_vignette)
 - 
