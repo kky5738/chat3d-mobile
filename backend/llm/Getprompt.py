@@ -45,7 +45,7 @@ class TextProcessing:
     def getAnswer(self, prompt):
         pass
 
-class TextProcessing_gpt(TextProcessing):
+class TextProcessingGPT(TextProcessing):
 
     def __init__(self, ner_model, key):
         # 사용시 키 입력
@@ -110,7 +110,7 @@ class TextProcessing_gpt(TextProcessing):
         json_string = json.dumps(json_object)
         return json_string, response
 
-class TextProcessing_T5(TextProcessing):
+class TextProcessingT5(TextProcessing):
 
     def __init__(self, ner_model, model_name):
         # 사용시 키 입력

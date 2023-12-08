@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { StyleSheet, ScrollView } from 'react-native';
-import EditScreenInfo from '../../components/EditScreenInfo';
+import { StyleSheet, ScrollView, ActivityIndicator } from 'react-native';
+import PromptViewer from '../../components/PromptViewer';
 import { Text, View } from '../../components/Themed';
 import InputPrompt from '../../components/InputPrompt';
 import axios from 'axios';
@@ -11,15 +11,19 @@ import axios from 'axios';
 export default function TabOneScreen() {
     // State for input text
     const [inputText, setInputText] = useState('');
-
+    
     // State for the server response
     const [prompt, setPrompt] = useState(Object);
+
+    const [isLoading, setIsLoading] = useState(false)
 
     /**
      * Handles the press event, sends the input to the server, and updates the prompt.
      */
     const handlePress = async () => {
         console.log("send pressed", inputText);
+        setIsLoading(true)
+        
         const options = {
             method: "POST",
             url: `http://100.64.159.131:8375/text`,
@@ -33,6 +37,7 @@ export default function TabOneScreen() {
             const response = await axios.request(options);
             console.log(response.data.answer);
             setPrompt(response.data.answer);
+            setIsLoading(false)
         } catch (error) {
             console.log(error);
         }
@@ -48,8 +53,22 @@ export default function TabOneScreen() {
                 {/* InputPrompt component */}
                 <InputPrompt inputText={inputText} setInputText={setInputText} handlePress={handlePress} />
 
+                {/* seperator */}
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-                <EditScreenInfo data={prompt} />
+                {isLoading ? (
+                    <View>
+                        <ActivityIndicator size="large" color="#0000ff" />
+                        <Text style={styles.getStartedText} > Now prompt is creating </Text>
+                    </View>
+                ) : (
+                    <Text
+                        style={styles.getStartedText}
+                        lightColor="rgba(0,0,0,0.8)"
+                        darkColor="rgba(255,255,255,0.8)">
+                        Recommended prompt from LLM here:
+                    </Text>
+                )}
+                <PromptViewer data={prompt} />
             </ScrollView>
         </View>
     );
@@ -67,6 +86,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignContent: 'center',
     },
+    getStartedText: {
+        fontSize: 17,
+        lineHeight: 24,
+        textAlign: 'center',
+      },
     separator: {
         marginVertical: 30,
         height: 1,

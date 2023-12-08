@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from "react";
-import { View, Text, FlatList, Pressable, Image, ActivityIndicator, StyleSheet } from "react-native";
+import { FlatList, Pressable, Image, ActivityIndicator, StyleSheet } from "react-native";
+import {View, Text} from "../../components/Themed"
 import { useGlobalSearchParams, useRouter } from 'expo-router';
 import useFetch from '../../hooks/useFetch';
 
@@ -26,8 +27,9 @@ const ImageGrid = () => {
     
     return (
         <View style={styles.container}>
-            <Text>ImageGrid Component test</Text>
+            <Text>ImageGrid Component</Text>
             <View style={styles.imageContainer}>
+                {/* 서버에서 생성된 이미지 배열을 FlatList와 Image 컴포넌트를 이용해 화면에 표시 */}
                 <FlatList
                     data={data?.images}
                     renderItem={({ item, index }) => (
@@ -37,8 +39,7 @@ const ImageGrid = () => {
                                     pathname: `/3d-recon/image${index}`,
                                     params: {
                                         image: `${item}`,
-                                        id: `${index}`
-                                    }
+                                        id: `${index}`}
                                 })
                             }>
                                 <Image
