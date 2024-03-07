@@ -2,7 +2,19 @@
 ## Project Overview
 Welcome to this repository showcasing a  Chat3D React Native application developed using Expo and FastAPI. This example app focuses on demonstrating effective deployment strategies for web and mobile machine learning (ML) applications. The core functionality involves serving ML models, and while the current setup deploys diffusion models, it's easily configurable to support various ML workloads.
 
-이 저장소에는 Expo 및 FastAPI를 사용하여 구축된 React Native 애플리케이션이 포함되어 있습니다. 이 예시 앱은 웹 및 모바일 ML 애플리케이션의 배포 전략을 시연하기 위한 것입니다. 현재 설정은 확산 모델을 배포하지만 다양한 ML 워크로드를 지원하도록 쉽게 구성할 수 있습니다.
+Development of semi-automatic Text to 3D platform based on chatbot
+Role: 3D Reconstruction(Modeling) from single image using NeRF and Diffusion priors
+
+- Context
+ The significance of 3D content is progressively growing in various sectors such as medicine and the metaverse markets. 
+ Nonetheless, manually creating 3D assets can be time-consuming for practitioners and requires a lot of underlying knowledge.
+
+- Method
+ The key components of this work include LLM guided prompt recommendation and a user-centric interactive system that proceeds through user interaction.
+ The input prompts are complemented by LLM looking for missing representations of style, size, etc.
+
+- Conclusion
+ The interactive 3d reconstruction method is presented in this work. Through the utilization of a LLM, we can identify missing tags and supplement prompts that describe objects. This approach leads to a more user-friendly data generation(synthesis) in the text-conditioning generative model.
 
 
 # Prerequisite for Install
