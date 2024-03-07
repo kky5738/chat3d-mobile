@@ -13,6 +13,10 @@ LLM과 Generative AI를 통해 3D 오브젝트를 생성하는 반자동 Text to
 - 선택적으로 Image Editing을 거쳐 원본 형태를 유지하며 이미지의 스타일 편집 가능
 - 사용자가 원하는 이미지를 선택하면 NeRF 기반 모델에서 3D reconstruction 진행
 
+# Graphical Abstract
+![chat3d-Graphical abstract](https://github.com/kky5738/chat3d-mobile/assets/74523540/1cdc3e75-eb11-4d59-84e8-ce4daf6969d6)
+
+
 # Prerequisite for Install
 - you may need to node.js, python, pytorch, ubuntu, cuda
 
