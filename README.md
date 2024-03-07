@@ -1,21 +1,17 @@
-# Chat3D: React Native App with Expo
+# Chat3D: Interactive 3D Reconstruction With the Assistance of Large Language Model
+# React Native App with Expo
 ## Project Overview
-Welcome to this repository showcasing a  Chat3D React Native application developed using Expo and FastAPI. This example app focuses on demonstrating effective deployment strategies for web and mobile machine learning (ML) applications. The core functionality involves serving ML models, and while the current setup deploys diffusion models, it's easily configurable to support various ML workloads.
+LLM과 Generative AI 기반의 반자동 3D 가구 모델링 플랫폼 개발
 
-Development of semi-automatic Text to 3D platform based on chatbot
-Role: 3D Reconstruction(Modeling) from single image using NeRF and Diffusion priors
+프로젝트 개요:
+LLM 모델을 통해 사용자가 입력한 가구의 프롬프트(텍스트)를 보완 후 Generative AI를 거쳐 해당 가구의 이미지 및 3D 모델링 파일(.obj)를 생성함으로써 사용자의 3D 모델링을 도와주는 프로젝트
 
-- Context
- The significance of 3D content is progressively growing in various sectors such as medicine and the metaverse markets. 
- Nonetheless, manually creating 3D assets can be time-consuming for practitioners and requires a lot of underlying knowledge.
-
-- Method
- The key components of this work include LLM guided prompt recommendation and a user-centric interactive system that proceeds through user interaction.
- The input prompts are complemented by LLM looking for missing representations of style, size, etc.
-
-- Conclusion
- The interactive 3d reconstruction method is presented in this work. Through the utilization of a LLM, we can identify missing tags and supplement prompts that describe objects. This approach leads to a more user-friendly data generation(synthesis) in the text-conditioning generative model.
-
+프로젝트 내용:
+LLM과 Generative AI를 통해 3D 오브젝트를 생성하는 반자동 Text to 3D 프로젝트
+- fine-tuned FlanT5를 통한 prompt recommendation을 통해 사용자가 묘사한 텍스트에서 빠진 정보를 보완
+- 보완된 텍스트를 기반으로 fine-tuned Stable Diffusion을 통해 다수의 이미지 생성
+- 선택적으로 Image Editing을 거쳐 원본 형태를 유지하며 이미지의 스타일 편집 가능
+- 사용자가 원하는 이미지를 선택하면 NeRF 기반 모델에서 3D reconstruction 진행
 
 # Prerequisite for Install
 - you may need to node.js, python, pytorch, ubuntu, cuda
