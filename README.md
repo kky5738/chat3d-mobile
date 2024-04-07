@@ -1,8 +1,20 @@
-# Chat3D: React Native App with Expo
+# Chat3D: Interactive 3D Reconstruction With the Assistance of Large Language Model
+# React Native App with Expo
 ## Project Overview
-Welcome to this repository showcasing a  Chat3D React Native application developed using Expo and FastAPI. This example app focuses on demonstrating effective deployment strategies for web and mobile machine learning (ML) applications. The core functionality involves serving ML models, and while the current setup deploys diffusion models, it's easily configurable to support various ML workloads.
+LLM과 Generative AI 기반의 반자동 3D 가구 모델링 플랫폼 개발
 
-이 저장소에는 Expo 및 FastAPI를 사용하여 구축된 React Native 애플리케이션이 포함되어 있습니다. 이 예시 앱은 웹 및 모바일 ML 애플리케이션의 배포 전략을 시연하기 위한 것입니다. 현재 설정은 확산 모델을 배포하지만 다양한 ML 워크로드를 지원하도록 쉽게 구성할 수 있습니다.
+프로젝트 개요:
+LLM 모델을 통해 사용자가 입력한 가구의 프롬프트(텍스트)를 보완 후 Generative AI를 거쳐 해당 가구의 이미지 및 3D 모델링 파일(.obj)를 생성함으로써 사용자의 3D 모델링을 도와주는 프로젝트
+
+프로젝트 내용:
+LLM과 Generative AI를 통해 3D 오브젝트를 생성하는 반자동 Text to 3D 프로젝트
+- fine-tuned FlanT5를 통한 prompt recommendation을 통해 사용자가 묘사한 텍스트에서 빠진 정보를 보완
+- 보완된 텍스트를 기반으로 fine-tuned Stable Diffusion을 통해 다수의 이미지 생성
+- 선택적으로 Image Editing을 거쳐 원본 형태를 유지하며 이미지의 스타일 편집 가능
+- 사용자가 원하는 이미지를 선택하면 NeRF 기반 모델에서 3D reconstruction 진행
+
+# Graphical Abstract
+![chat3d-Graphical abstract](https://github.com/kky5738/chat3d-mobile/assets/74523540/1cdc3e75-eb11-4d59-84e8-ce4daf6969d6)
 
 
 # Prerequisite for Install
